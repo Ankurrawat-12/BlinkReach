@@ -249,7 +249,7 @@ export default function LandingPage() {
                         className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                         disabled={isRequestingAudit}
                       >
-                        {isRequestingAudit ? 'Requesting...' : 'Let&apos;s Go'}
+                        {isRequestingAudit ? 'Requesting...' : 'Let\'s Go'}
                       </button>
                     </form>
                   )
