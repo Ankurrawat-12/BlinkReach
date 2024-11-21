@@ -209,14 +209,16 @@ export default function LandingPage() {
         <section id="hero" ref={heroRef} className="min-h-screen py-16 md:py-24 flex items-center bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-black opacity-50"></div>
-            <Image
-              src="/hero-image.jpg"
-              alt="Email marketing network visualization"
-              layout="fill"
-              objectFit="cover"
-              className="object-center"
-              priority
-            />
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: 'url(/hero_main.png)',
+                filter: 'blur(8px)',
+                opacity: 0.7,
+                transform: 'translateY(-20%)',
+                backgroundAttachment: 'fixed',
+              }}
+            ></div>
           </div>
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -247,7 +249,7 @@ export default function LandingPage() {
                         className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                         disabled={isRequestingAudit}
                       >
-                        {isRequestingAudit ? 'Requesting...' : 'Let\'s Go'}
+                        {isRequestingAudit ? 'Requesting...' : 'Let&apos;s Go'}
                       </button>
                     </form>
                   )
@@ -261,7 +263,7 @@ export default function LandingPage() {
               </div>
               <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mt-8 md:mt-0 order-first md:order-last">
                 <Image
-                  src="/placeholder.svg?height=500&width=600"
+                  src="/header.jpeg?height=500&width=600"
                   alt="Business professionals in discussion"
                   layout="fill"
                   objectFit="cover"
@@ -358,7 +360,8 @@ export default function LandingPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Email Marketing Mastery</h2>
             <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <Image src="/placeholder.svg?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" />
+                {/* <Image src="/placeholder.svg?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" /> */}
+                <Image src="/strategies.png?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" />
               </div>
               <div className="md:w-1/2 md:pl-12">
                 <ul className="space-y-6">
