@@ -1,0 +1,20 @@
+# robots.txt for TheEmailMafia
+
+User-agent: *
+Allow: /
+
+# Disallow crawling of administrative pages
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+
+# Allow crawling of important sections
+Allow: /services/
+Allow: /case-studies/
+Allow: /blog/
+
+# Sitemap location
+Sitemap: https://www.theemailmafia.com/sitemap.xml
+
+# Crawl-delay directive (optional, adjust as needed)
+Crawl-delay: 10
