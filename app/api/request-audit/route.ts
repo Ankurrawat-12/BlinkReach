@@ -16,7 +16,7 @@ export async function POST(request: Request) {
       secure: process.env.EMAIL_SECURE === 'true',
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        pass: "zykw bnoq oqur xhlc"
       },
     })
 

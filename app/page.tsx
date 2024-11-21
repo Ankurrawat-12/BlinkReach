@@ -72,7 +72,7 @@ export default function LandingPage() {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [testimonials.length]);
 
   useEffect(() => {
     if (isVisible.stats) {
@@ -110,6 +110,7 @@ export default function LandingPage() {
           setAuditRequestError(data.error || 'Audit request failed. Please try again.')
         }
       } catch (error) {
+        console.error('Audit request error:', error)
         setAuditRequestError('An error occurred. Please try again later.')
       } finally {
         setIsRequestingAudit(false)
@@ -142,6 +143,7 @@ export default function LandingPage() {
           setSubscriptionError(data.error || 'Subscription failed. Please try again.')
         }
       } catch (error) {
+        console.error('Newsletter subscription error:', error)
         setSubscriptionError('An error occurred. Please try again later.')
       } finally {
         setIsSubscribing(false)
@@ -164,7 +166,7 @@ export default function LandingPage() {
     let currentStep = 0
 
     const interval = setInterval(() => {
-      setAnimatedStats(prev => ({
+      setAnimatedStats(() => ({
         clients: Math.min(Math.round((currentStep / steps) * 500), 500),
         emailsSent: Math.min(Math.round((currentStep / steps) * 10000000), 10000000),
         openRate: Math.min(Math.round((currentStep / steps) * 35), 35),
@@ -245,7 +247,7 @@ export default function LandingPage() {
                         className="bg-white text-gray-900 px-6 py-2 rounded-full hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
                         disabled={isRequestingAudit}
                       >
-                        {isRequestingAudit ? 'Requesting...' : 'Let\'s Go'}
+                        {isRequestingAudit ? 'Requesting...' : 'Let&apos;s Go'}
                       </button>
                     </form>
                   )
@@ -255,7 +257,7 @@ export default function LandingPage() {
                 {auditRequestError && (
                   <p className="mt-4 text-red-500">{auditRequestError}</p>
                 )}
-                <p className="text-lg mt-8 max-w-2xl mx-auto md:mx-0 text-gray-300">Boost conversions with TheEmailMafia's expert strategies!</p>
+                <p className="text-lg mt-8 max-w-2xl mx-auto md:mx-0 text-gray-300">Boost conversions with TheEmailMafia&apos;s expert strategies!</p>
               </div>
               <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mt-8 md:mt-0 order-first md:order-last">
                 <Image
@@ -274,7 +276,7 @@ export default function LandingPage() {
         <section id="services" className={`py-24 md:py-32 transition-all duration-1000 ${isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="container mx-auto px-6">
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">Our Services</h2>
-            <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">Elevate your email marketing with our comprehensive suite of services. From strategy to execution, we've got you covered.</p>
+            <p className="text-xl text-center text-gray-600 mb-16 max-w-3xl mx-auto">Elevate your email marketing with our comprehensive suite of services. From strategy to execution, we&apos;ve got you covered.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
               {Object.entries(serviceDescriptions).map(([service, description], index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1">
