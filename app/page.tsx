@@ -206,20 +206,7 @@ export default function LandingPage() {
       </header>
 
       <main className="pt-20">
-        <section id="hero" ref={heroRef} className="min-h-screen py-16 md:py-24 flex items-center bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage: 'url(/hero_main.png)',
-                filter: 'blur(8px)',
-                opacity: 0.7,
-                transform: 'translateY(-20%)',
-                backgroundAttachment: 'fixed',
-              }}
-            ></div>
-          </div>
+        <section id="hero" ref={heroRef} className="min-h-screen py-16 md:py-24 flex items-center bg-gray-900 text-white relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div className="space-y-8 text-center md:text-left">
@@ -259,17 +246,24 @@ export default function LandingPage() {
                 {auditRequestError && (
                   <p className="mt-4 text-red-500">{auditRequestError}</p>
                 )}
-                <p className="text-lg mt-8 max-w-2xl mx-auto md:mx-0 text-gray-300">Boost conversions with TheEmailMafia&apos;s expert strategies!</p>
+                <p className="text-lg mt-8 max-w-2xl mx-auto md:mx-0 text-gray-400">Boost conversions with TheEmailMafia&apos;s expert strategies!</p>
               </div>
               <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mt-8 md:mt-0 order-first md:order-last">
-                <Image
-                  src="/header.jpeg?height=500&width=600"
-                  alt="Business professionals in discussion"
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-lg shadow-2xl"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+              <Image
+  src="/hero.jpg?height=500&width=600"
+  alt="Business professionals in discussion"
+  layout="fill"
+  objectFit="cover"
+  className="rounded-lg shadow-2xl opacity-20"
+  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+  style={{
+    WebkitMaskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)',
+    maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)',
+    WebkitMaskRepeat: 'no-repeat',
+    maskRepeat: 'no-repeat',
+  }}
+/>
+
               </div>
             </div>
           </div>
