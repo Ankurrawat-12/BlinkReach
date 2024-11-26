@@ -8,12 +8,10 @@ export default function LandingPage() {
   const [isVisible, setIsVisible] = useState({
     services: false,
     stats: false,
-    testimonials: false,
     strategies: false,
     caseStudies: false,
   })
   const [showFloatingCTA, setShowFloatingCTA] = useState(false)
-  const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [showAuditInput, setShowAuditInput] = useState(false)
   const [auditEmail, setAuditEmail] = useState('')
   const [newsletterEmail, setNewsletterEmail] = useState('')
@@ -33,14 +31,6 @@ export default function LandingPage() {
   const heroRef = useRef(null)
   const statsRef = useRef(null)
 
-  const testimonials = [
-    { name: 'Sarah Johnson', position: 'CMO, TechGrowth', comment: 'TheEmailMafia revolutionized our email campaigns. We saw a 250% increase in engagement within the first month!' },
-    { name: 'Alex Chen', position: 'Founder, EcoStart', comment: 'Their strategies helped us connect with our audience on a deeper level. Our conversion rates have never been better.' },
-    { name: 'Emily Rodriguez', position: 'Digital Marketing Lead, FashionForward', comment: 'The personalized approach and data-driven insights from TheEmailMafia transformed our email marketing ROI.' },
-    { name: 'Michael Thompson', position: 'CEO, InnovateTech', comment: 'TheEmailMafia\'s expertise has been instrumental in scaling our outreach efforts. Our subscriber base has grown exponentially!' },
-    { name: 'Sophia Lee', position: 'Marketing Director, GreenEats', comment: 'The personalized campaigns crafted by TheEmailMafia have significantly boosted our customer retention rates.' },
-    { name: 'David Patel', position: 'Founder, FinTech Solutions', comment: 'Thanks to TheEmailMafia, our email open rates have doubled, and click-through rates have never been higher.' },
-  ];
 
   const caseStudies = [
     { title: 'TechGrowth Expansion', description: 'Helped TechGrowth increase their customer base by 150% through targeted email campaigns.' },
@@ -50,7 +40,7 @@ export default function LandingPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['services', 'stats', 'testimonials', 'strategies', 'caseStudies']
+      const sections = ['services', 'stats', 'strategies', 'caseStudies']
       sections.forEach(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -66,13 +56,6 @@ export default function LandingPage() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [testimonials.length]);
 
   useEffect(() => {
     if (isVisible.stats) {
@@ -167,8 +150,8 @@ export default function LandingPage() {
 
     const interval = setInterval(() => {
       setAnimatedStats(() => ({
-        clients: Math.min(Math.round((currentStep / steps) * 500), 500),
-        emailsSent: Math.min(Math.round((currentStep / steps) * 10000000), 10000000),
+        clients: Math.min(Math.round((currentStep / steps) * 50), 50),
+        emailsSent: Math.min(Math.round((currentStep / steps) * 1000000), 1000000),
         openRate: Math.min(Math.round((currentStep / steps) * 35), 35),
         roi: Math.min(Math.round((currentStep / steps) * 400), 400)
       }))
@@ -196,7 +179,6 @@ export default function LandingPage() {
             <div className="text-2xl font-bold text-gray-800 font-serif mb-4 md:mb-0 transition-all duration-300 hover:text-gray-600">TheEmailMafia</div>
             <div className="hidden md:flex space-x-4 lg:space-x-8">
               <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="hover:text-gray-600 transition-colors text-xs lg:text-sm uppercase tracking-wide px-3 py-1">Services</a>
-              <a href="#testimonials" onClick={(e) => { e.preventDefault(); scrollToSection('testimonials'); }} className="hover:text-gray-600 transition-colors text-xs lg:text-sm uppercase tracking-wide px-3 py-1">Testimonials</a>
               <a href="#strategies" onClick={(e) => { e.preventDefault(); scrollToSection('strategies'); }} className="hover:text-gray-600 transition-colors text-xs lg:text-sm uppercase tracking-wide px-3 py-1">Strategies</a>
               <a href="#caseStudies" onClick={(e) => { e.preventDefault(); scrollToSection('caseStudies'); }} className="hover:text-gray-600 transition-colors text-xs lg:text-sm uppercase tracking-wide px-3 py-1">Case Studies</a>
               <a href="#newsletter" onClick={(e) => { e.preventDefault(); scrollToSection('newsletter'); }} className="hover:text-gray-600 transition-colors text-xs lg:text-sm uppercase tracking-wide px-3 py-1">Newsletter</a>
@@ -205,7 +187,7 @@ export default function LandingPage() {
         </nav>
       </header>
 
-      <main className="pt-20">
+      <main>
         <section id="hero" ref={heroRef} className="min-h-screen py-16 md:py-24 flex items-center bg-gray-900 text-white relative overflow-hidden">
           <div className="container mx-auto px-6 relative z-10">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -248,22 +230,21 @@ export default function LandingPage() {
                 )}
                 <p className="text-lg mt-8 max-w-2xl mx-auto md:mx-0 text-gray-400">Boost conversions with TheEmailMafia&apos;s expert strategies!</p>
               </div>
-              <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mt-8 md:mt-0 order-first md:order-last">
-              <Image
-  src="/hero.jpg?height=500&width=600"
-  alt="Business professionals in discussion"
-  layout="fill"
-  objectFit="cover"
-  className="rounded-lg shadow-2xl opacity-20"
-  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-  style={{
-    WebkitMaskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)',
-    maskImage: 'radial-gradient(circle, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%)',
-    WebkitMaskRepeat: 'no-repeat',
-    maskRepeat: 'no-repeat',
-  }}
-/>
-
+              <div className="relative h-[300px] md:h-[400px] lg:h-[500px] mt-8 md:mt-0 order-first md:order-last absolute inset-0 overflow-hidden">
+                <Image
+                  src="/hero.jpg?height=500&width=600"
+                  alt="Business professionals in discussion"
+                  layout="fill"
+                  objectFit="cover"
+                  className="opacity-20"
+                  sizes="100vw"
+                  draggable="false"
+                  style={{
+                    maskImage: 'radial-gradient(circle at center, black 50%, transparent 100%)',
+                    WebkitMaskImage: 'radial-gradient(circle at center, black 50%, transparent 100%)',
+                    background: 'linear-gradient(to right, rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.4))',
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -311,51 +292,12 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="testimonials" className={`bg-gray-100 py-24 md:py-32 transition-all duration-1000 ${isVisible.testimonials ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="container mx-auto px-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">What Our Clients Say</h2>
-            <div className="relative">
-              <div className="overflow-hidden">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                  {testimonials.map((testimonial, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-white p-8 md:p-12 rounded-lg shadow-lg max-w-4xl mx-auto h-full flex flex-col justify-between">
-                        <p className="text-lg md:text-2xl mb-6 italic text-center">{testimonial.comment}</p>
-                        <div className="flex items-center justify-center md:justify-start">
-                          <Image src={`https://i.pravatar.cc/60?img=${index + 1}`} alt={testimonial.name} width={60} height={60} className="rounded-full mr-4" />
-                          <div className="text-center md:text-left">
-                            <h3 className="font-semibold">{testimonial.name}</h3>
-                            <p className="text-gray-600 text-sm">{testimonial.position}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <button
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-all duration-300"
-                onClick={() => setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1))}
-              >
-                <ChevronRight className="transform rotate-180 text-white" />
-              </button>
-              <button
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-20 hover:bg-opacity-30 rounded-full p-2 transition-all duration-300"
-                onClick={() => setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1))}
-              >
-                <ChevronRight className="text-white" />
-              </button>
-            </div>
-          </div>
-        </section>
-
         <section id="strategies" className={`py-24 md:py-32 transition-all duration-1000 ${isVisible.strategies ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="container mx-auto px-6">
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Email Marketing Mastery</h2>
             <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                {/* <Image src="/placeholder.svg?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" /> */}
-                <Image src="/strategies.png?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" />
+                <Image src="/strategies.png?height=400&width=600" alt="Email Marketing Strategies" width={600} height={400} className="rounded-lg shadow-lg" draggable="false"/>
               </div>
               <div className="md:w-1/2 md:pl-12">
                 <ul className="space-y-6">
@@ -456,13 +398,11 @@ export default function LandingPage() {
                 <li><a href="#" className="hover:text-gray-300 transition-colors">Home</a></li>
                 <li><a href="#" className="hover:text-gray-300 transition-colors">About Us</a></li>
                 <li><a href="#" className="hover:text-gray-300 transition-colors">Services</a></li>
-                <li><a href="#" className="hover:text-gray-300 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Connect With Us</h4>
+              <h4 className="text-lg font-semibold mb-4">Connect Us</h4>
               <div className="flex space-x-4">
-                <a href="#" className="hover:text-gray-300 transition-colors"><Facebook /></a>
                 <a href="#" className="hover:text-gray-300 transition-colors"><Twitter /></a>
                 <a href="#" className="hover:text-gray-300 transition-colors"><Instagram /></a>
                 <a href="#" className="hover:text-gray-300 transition-colors"><Linkedin /></a>
