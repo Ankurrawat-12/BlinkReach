@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { ChevronRight, Mail, Send, Star, Facebook, Twitter, Instagram, Linkedin, ChevronUp, ArrowRight } from 'lucide-react'
+import { ChevronRight, Mail, Send, Star, Twitter, Instagram, Linkedin, ChevronUp, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 export default function LandingPage() {
