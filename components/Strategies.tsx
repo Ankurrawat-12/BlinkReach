@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { Lightbulb, Target, Smartphone, Brain } from 'lucide-react'
 
@@ -14,41 +14,36 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
     { icon: Brain, text: 'Leverage AI-powered personalization to connect with your audience' },
   ]
 
-  const sectionRef = useRef<HTMLElement>(null)
-
-  useEffect(() => {
-    if (isVisible && sectionRef.current) {
-      sectionRef.current.style.opacity = '1'
-      sectionRef.current.style.transform = 'translateY(0)'
-    }
-  }, [isVisible])
-
   return (
-    <section 
-      ref={sectionRef} 
-      id="strategies" 
-      className="py-24 md:py-32 bg-gradient-to-b from-gray-100 to-white transition-all duration-1000 opacity-0 translate-y-10"
-    >
+    <section id="strategies" className={`py-24 md:py-32 bg-gradient-to-b from-gray-100 to-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Email Marketing Mastery</h2>
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
-          <div className="md:w-1/2 mb-8 md:mb-0 relative">
+          <div className={`md:w-1/2 mb-8 md:mb-0 relative transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px] mix-blend-overlay z-10" />
               <Image
                 src="/strategies.png?height=400&width=600"
                 alt="Email Marketing Strategies"
                 layout="fill"
                 objectFit="cover"
-                className="rounded-lg transition-all duration-300 hover:scale-105 filter brightness-90 hover:brightness-100"
+                className="rounded-lg transition-all duration-500"
                 draggable="false"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-purple-500/30 mix-blend-overlay" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent mix-blend-overlay" />
             </div>
           </div>
           <div className="md:w-1/2 md:pl-12">
             <ul className="space-y-6">
               {strategies.map((strategy, index) => (
-                <li key={index} className="flex items-start">
+                <li 
+                  key={index} 
+                  className={`flex items-start transition-all duration-500 transform ${
+                    isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+                  }`} 
+                  style={{ transitionDelay: `${index * 150}ms` }}
+                >
                   <div className="mr-4 p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full text-white">
                     <strategy.icon size={24} />
                   </div>

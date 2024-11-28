@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           <div className="space-y-8 text-center md:text-left">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-serif leading-tight">Dominate the Inbox Game</h1>
-            <p className="text-xl md:text-2xl text-gray-300">Unlock Your Business Potential with Elite Email Marketing</p>
+            <p className="text-xl md:text-2xl text-gray-300 pb-[30px]">Unlock Your Business Potential with Elite Email Marketing</p>
             {!isAuditRequested ? (
               !showAuditInput ? (
                 <button
