@@ -21,7 +21,7 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
           <div className={`md:w-1/2 mb-8 md:mb-0 relative transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px] mix-blend-overlay z-10" />
+              <div className="absolute inset-0  z-10" />
               <Image
                 src="/strategies.png?height=400&width=600"
                 alt="Email Marketing Strategies"
