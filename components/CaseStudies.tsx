@@ -15,7 +15,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ isVisible }) => {
   return (
     <section id="caseStudies" className={`bg-gray-900 text-white py-24 md:py-32 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Case Studies</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24">Case Studies</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
             <div key={index} className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">

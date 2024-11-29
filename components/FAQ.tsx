@@ -32,7 +32,7 @@ const FAQ: React.FC<FAQProps> = ({ isVisible }) => {
   return (
     <section id="faq" className={`py-24 md:py-32 bg-gray-900 text-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Frequently Asked Questions</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 ">Frequently Asked Questions</h2>
         <div className="max-w-3xl mx-auto space-y-4">
           {faqs.map((faq, index) => (
             <div
