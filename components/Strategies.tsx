@@ -20,18 +20,17 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Email Marketing Mastery</h2>
         <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
           <div className={`md:w-1/2 mb-8 md:mb-0 relative transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="relative w-full h-[400px] rounded-lg overflow-hidden shadow-2xl">
-              <div className="absolute inset-0  z-10" />
+            <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent mix-blend-overlay z-10" />
               <Image
-                src="/strategies.png?height=400&width=600"
+                src="/strategies.png"
                 alt="Email Marketing Strategies"
                 layout="fill"
-                objectFit="cover"
-                className="rounded-lg transition-all duration-500"
+                objectFit="contain"
+                className="transition-all duration-500"
                 draggable="false"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-white/40 to-transparent mix-blend-overlay" />
             </div>
           </div>
           <div className="md:w-1/2 md:pl-12">
