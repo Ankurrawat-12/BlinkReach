@@ -15,12 +15,12 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
   ]
 
   return (
-    <section id="strategies" className={`py-24 md:py-32 bg-gradient-to-b from-gray-100 to-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-      <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 md:mb-24 font-serif">Email Marketing Mastery</h2>
-        <div className="flex flex-col md:flex-row items-center justify-between md:space-x-12">
-          <div className={`md:w-1/2 mb-8 md:mb-0 relative transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
+    <section id="strategies" className={`py-12 sm:py-16 md:py-24 lg:py-32 bg-gradient-to-b from-gray-100 to-white transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 md:mb-16 lg:mb-24 font-serif">Email Marketing Mastery</h2>
+        <div className="flex flex-col lg:flex-row items-center justify-between lg:space-x-12">
+          <div className={`w-full lg:w-1/2 mb-8 lg:mb-0 transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="relative w-full aspect-[4/3] max-w-[500px] mx-auto lg:mx-0 rounded-lg overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent mix-blend-overlay z-10" />
               <Image
                 src="/strategies.png"
@@ -33,7 +33,7 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
               />
             </div>
           </div>
-          <div className="md:w-1/2 md:pl-12">
+          <div className="w-full lg:w-1/2 lg:pl-12">
             <ul className="space-y-6">
               {strategies.map((strategy, index) => (
                 <li 
@@ -43,12 +43,12 @@ const Strategies: React.FC<StrategiesProps> = ({ isVisible }) => {
                   }`} 
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
-                  <div className="mr-4 p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full text-white">
+                  <div className="mr-4 p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full text-white flex-shrink-0">
                     <strategy.icon size={24} />
                   </div>
                   <div>
-                    <p className="text-lg font-semibold">{strategy.text}</p>
-                    <p className="text-gray-600 mt-1">
+                    <p className="text-base sm:text-lg font-semibold">{strategy.text}</p>
+                    <p className="text-sm sm:text-base text-gray-600 mt-1">
                       {index === 0 && "Increase engagement with compelling headlines."}
                       {index === 1 && "Reach your audience wherever they are."}
                       {index === 2 && "Deliver relevant content to the right subscribers."}

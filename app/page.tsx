@@ -6,7 +6,7 @@ import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import Stats from '@/components/Stats'
 import Strategies from '@/components/Strategies'
-import CaseStudies from '@/components/CaseStudies'
+import FAQ from '@/components/FAQ'
 import Newsletter from '@/components/Newsletter'
 import Footer from '@/components/Footer'
 import FloatingCTA from '@/components/FloatingCTA'
@@ -16,13 +16,14 @@ export default function LandingPage() {
     services: false,
     stats: false,
     strategies: false,
+    faq: false,
     caseStudies: false,
   })
   const [showFloatingCTA, setShowFloatingCTA] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['services', 'stats', 'strategies', 'caseStudies']
+      const sections = ['services', 'stats', 'strategies', 'faq']
       sections.forEach(section => {
         const element = document.getElementById(section)
         if (element) {
@@ -53,7 +54,8 @@ export default function LandingPage() {
         <Services isVisible={isVisible.services} />
         <Stats isVisible={isVisible.stats} />
         <Strategies isVisible={isVisible.strategies} />
-        <CaseStudies isVisible={isVisible.caseStudies} />
+        <FAQ isVisible={isVisible.faq} />
+
         <Newsletter />
       </main>
       <Footer />
