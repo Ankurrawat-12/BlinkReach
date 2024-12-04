@@ -1,4 +1,5 @@
 import './globals.css'
+import { inter } from '../fonts'
 
 export const metadata = {
   title: 'TheEmailMafia',
@@ -11,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={inter.className}>
+      <body className="overflow-x-hidden">{children}</body>
     </html>
   )
 }
