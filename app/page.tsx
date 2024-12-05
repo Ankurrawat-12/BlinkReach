@@ -58,7 +58,7 @@ export default function LandingPage() {
 
         <Newsletter />
       </main>
-      <Footer />
+      <Footer scrollToSection={scrollToSection} />
       {showFloatingCTA && <FloatingCTA scrollToSection={scrollToSection} />}
     </div>
   )

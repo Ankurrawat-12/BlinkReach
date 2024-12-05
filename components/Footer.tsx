@@ -1,7 +1,11 @@
 import React from 'react'
 import { Twitter, Instagram, Linkedin } from 'lucide-react'
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  scrollToSection: (sectionId: string) => void
+}
+
+const Footer: React.FC<FooterProps> = ({ scrollToSection }) => {
   return (
     <footer className="bg-gray-900 text-white py-16">
       <div className="container mx-auto px-6">
@@ -13,9 +17,9 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-gray-300 transition-colors">Home</a></li>
-              <li><a href="#services" className="hover:text-gray-300 transition-colors">About Us</a></li>
-              <li><a href="#faq" className="hover:text-gray-300 transition-colors">FAQ</a></li>
+              <li><a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }} className="hover:text-gray-300 transition-colors">Home</a></li>
+              <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="hover:text-gray-300 transition-colors">About US</a></li>
+              <li><a href="#faq" onClick={(e) => { e.preventDefault(); scrollToSection('faq'); }} className="hover:text-gray-300 transition-colors">FAQ</a></li>
             </ul>
           </div>
           <div>
