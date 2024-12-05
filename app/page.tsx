@@ -47,7 +47,7 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800 font-sans">
+    <div className="min-h-screen bg-gray-100 text-gray-800 overflow-x-hidden font-sans">
       <Header scrollToSection={scrollToSection} />
       <main>
         <Hero />

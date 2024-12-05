@@ -6,7 +6,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ scrollToSection }) => {
   return (
-    <header className="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+    <header className="bg-white shadow-md fixed w-screen z-50 transition-all duration-300">
       <nav className="w-screen px-4 sm:px-6 py-2 md:py-4">
         <div className="flex flex-col items-center md:flex-row md:justify-between">
           <div className="text-xl sm:text-2xl font-bold text-gray-800 py-2 md:py-0 md:mb-0 transition-all duration-300 hover:text-gray-600 w-full text-center md:text-left md:w-auto truncate">TheEmailMafia</div>
