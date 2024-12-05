@@ -8,7 +8,7 @@ interface FAQProps {
 }
 
 const FAQ: React.FC<FAQProps> = ({ isVisible }) => {
-  const [openQuestion, setOpenQuestion] = useState<number | null>(null)
+  const [openQuestion, setOpenQuestion] = useState<number | null>(0)
 
   const faqs = [
     {
